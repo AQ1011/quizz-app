@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
+.active {
+    border: 1px solid #17a2b8;
+    border-radius: 0.25em;
+    color: black;
+    background: transparentize(#17a2b8 , 0.8);
+}
+a {
+    display: block;
+    font-size: 24px;
+    padding: 8px 16px 8px 16px;
+    margin-bottom: 8px;
+}
+.navlink:hover {
+    border: 1px solid #17a2b8;
+    border-radius: 0.25em;
+}
+
+* {
+    font-family: 'Amatic SC', cursive;
+}
+
+.spacing-top{
+    margin-top: 48px;
+}
+
+.navlink {
+    color: white
+}
+.menu {
+    max-width: 300px;
+}
+.pic {
+    max-width: 150px;
+    max-height: 150px;
+    margin-bottom: 24px;
+}

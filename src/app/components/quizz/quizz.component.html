@@ -1,0 +1,23 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col p-5 d-flex justify-content-between">
+            <h2>1 of 100</h2>
+        </div>
+    </div>
+    <div class="row m-5">        
+        <div class="col d-flex justify-content-center align-middle">
+            <h1>{{myQuizz.question}}</h1>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center p-4 m-2">
+        <div class="col-6 d-flex justify-content-center p-1" *ngFor="let answer of myQuizz.answers">
+            <div class="answer">                
+                <button type="button" 
+                    class="btn btn-info btn-block h-100 w-100 answer-button"
+                    (click)="choose(answer)"
+                    >{{answer}}</button>
+            </div>
+        </div>
+    </div>
+</div>

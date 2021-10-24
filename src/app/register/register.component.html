@@ -1,0 +1,45 @@
+<div class="container login border border-primary rounded p-4">
+    <form 
+      name="form"
+      *ngIf="!isLoggedIn"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm">
+      <div class="form-group">
+        <label for="InputUsername">Tên tài khoản</label>
+        <input  
+          type="text" 
+          name="username"
+          class="form-control" 
+          id="InputUsername" 
+          placeholder="Nhập tên tài khoản"        
+          [(ngModel)]="form.username"
+          #username="ngModel"
+          required>
+        <div class="" *ngIf="f.submitted && username.invalid">
+          <small *ngIf="username.errors.required" class="text-danger">*Chưa nhập tên tài khoản</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="InputPassword">Mật khẩu</label>
+        <input 
+          type="password" 
+          name="password"
+          class="form-control" 
+          id="InputPassword" 
+          placeholder="Nhập Mật khẩu"        
+          [(ngModel)]="form.password"
+          #password="ngModel"
+          required>
+          <div class="" *ngIf="f.submitted && password.invalid">
+            <small *ngIf="password.errors.required" class="text-danger">*Password is required</small>
+            <small *ngIf="password.errors.minlength" class="text-danger">
+              Password must be at least 6 characters
+            </small>
+          </div>
+      </div>
+      <div class="text-center mt-4">
+        <button type="submit" class="btn btn-primary">Đăng Nhập</button>
+      </div>
+      <a routerLink="../login" class="">Đăng ký</a>
+    </form>
+  </div>

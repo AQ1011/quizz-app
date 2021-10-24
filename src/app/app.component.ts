@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'quizz-app';
+  quizz= {
+    question: "Shrimp is wek",
+    answers: [
+      "true",
+      "very true",
+      "absolutely",
+      "absolutely",
+    ]
+  }
 }

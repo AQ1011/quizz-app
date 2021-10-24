@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+* {
+    font-size: 8px;
+}
+
+a {
+    font-family: 'Architects Daughter', cursive;
+    font-size: large;
+}
+
+.border-link {
+    border: 1px solid pink;
+    border-radius: 900px;
+    padding: 8px 16px 8px 16px;
+    background: pink;
+    color: black
+}
