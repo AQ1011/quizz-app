@@ -1,15 +1,19 @@
-<nav class="nav p-3 pl-5 pr-5 mb-5">
-  <a class="nav-link active" routerLink="">KahootReal</a>
+<nav class="nav pt-2 pl-5 pr-5 mb-5 fixed-top navbar-transparent" 
+  color-on-scroll="100" id="navbar-top" [ngStyle]="{'opacity': opacity}">
+  <a class="nav-link active" routerLink="home" id="brand">KahootReal</a>
   <!-- <a class="nav-link" href="#">Link</a>
   <a class="nav-link" href="#">Link</a>
   <a class="nav-link disabled" href="#">Disabled</a> -->
   <div class=" ml-auto">
-    <a class="btn btn-primary ml-auto btn-sm" routerLink="user">
-      Account
-    </a>
-    
-    <a class="btn btn-primary btn-sm ml-4" routerLink="register">
-      Đăng ký
-    </a>
+    <div class="collapse navbar-collapse">
+      <a class="btn btn-outline-primary ml-auto btn-sm" routerLink="user">
+        Account
+      </a>
+      
+      <a class="btn btn-outline-primary btn-sm ml-4" routerLink="register">
+        Đăng ký
+      </a>
+    </div>
+    <img src="../../../assets/Gawr_Gura.png" class="rounded-circle avatar mb-2"/>
   </div>
 </nav>

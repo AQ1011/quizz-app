@@ -14,7 +14,7 @@ import { AuthServiceService } from './services/auth-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
-import { ProfilepageComponent } from './profilepage/profilepage.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import { ProfilepageComponent } from './profilepage/profilepage.component';
     UserPageComponent,
     NotFoundComponent,
     RegisterComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
