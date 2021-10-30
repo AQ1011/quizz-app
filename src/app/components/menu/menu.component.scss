@@ -9,6 +9,7 @@ a {
     font-size: large;
     color:white;
 }
+
 .text-light {
     color:white;
 }
@@ -27,6 +28,14 @@ a {
     margin-left: 16px;
 }
 
-#navbar-top {    
-    transition: opacity 2s ease-in;
+#brand {    
+    transition: opacity 1s ease-in;
+}
+#navbar {
+    background: transparent;
+    transition: background-color 1s ease-out;
+}
+
+.pink {
+    background-color: black;
 }

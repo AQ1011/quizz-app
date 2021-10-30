@@ -16,23 +16,10 @@ export class AppComponent implements OnInit{
   @HostListener("window:scroll", ["$event"])
   onWindowScroll(e: any) {
     if (window.pageYOffset > 350) {
-      var element = document.getElementById("navbar-top");
-      var brand = document.getElementById("brand");
-      if (element) {
-        element.classList.remove("navbar-transparent");
-        element.classList.add("bg-danger");
-        brand.classList.remove("text-transparent");
-        brand.classList.add("text-white");
+        this.opacity = 1;
       }
-    } else {
-      var element = document.getElementById("navbar-top");
-      var brand = document.getElementById("brand");
-      if (element) {
-        element.classList.add("navbar-transparent");
-        element.classList.remove("bg-danger");        
-        brand.classList.add("text-transparent");
-        brand.classList.remove("text-white");
-      }
+      else {
+        this.opacity = 0;
     }
   }
   ngOnInit(): void {

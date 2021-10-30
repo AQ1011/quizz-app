@@ -1,4 +1,5 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -9,9 +10,15 @@ import { MenuItem } from 'primeng/api';
 export class MenuComponent implements OnInit {
 
     items!: MenuItem[];
-    constructor() { }
+    isHome: boolean;
+    constructor(
+        private router: Router) { }
     @Input() opacity: number;
-    ngOnInit(): void {      
+    ngOnInit(): void {
+        if(this.router.url === '/home')
+            this.isHome = true;
+        else  
+            this.isHome = false;
         this.items = [
         {
             label:'File',

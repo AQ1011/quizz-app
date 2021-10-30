@@ -1,6 +1,7 @@
-<nav class="nav pt-2 pl-5 pr-5 mb-5 fixed-top navbar-transparent" 
-  color-on-scroll="100" id="navbar-top" [ngStyle]="{'opacity': opacity}">
-  <a class="nav-link active" routerLink="home" id="brand">KahootReal</a>
+<nav id="navbar" class="nav pt-2 pl-5 pr-5 mb-5 fixed-top" 
+  color-on-scroll="100" id="navbar-top" [ngClass]="{'pink': opacity===1}">
+    <a class="nav-link active" routerLink="home" id="brand" 
+      [ngStyle]="{'opacity': isHome ? opacity : 1}">KahootReal</a>
   <!-- <a class="nav-link" href="#">Link</a>
   <a class="nav-link" href="#">Link</a>
   <a class="nav-link disabled" href="#">Disabled</a> -->
@@ -14,6 +15,6 @@
         Đăng ký
       </a>
     </div>
-    <img src="../../../assets/Gawr_Gura.png" class="rounded-circle avatar mb-2"/>
+    <img src="../../../assets/Gawr_Gura.png" class="rounded-circle avatar mb-2" routerLink='/user'/>
   </div>
 </nav>

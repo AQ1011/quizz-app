@@ -1,0 +1,58 @@
+
+<div class="container">
+    <div class="text-center">
+        <h3>Thêm bài quizz</h3>
+    </div>
+    <div #quizzName class="bg-light p-4 rounded">
+        <div class="" *ngIf="editName; else notEdit">
+            <form >
+                <div class="d-flex justify-content-between">
+                    <textarea  
+                        (input)="resizeTitle()"
+                        #editQuizzNameInput
+                        name="quizzName" [(ngModel)]="quizz.name" 
+                        class="form-control col-10 text-dark title"  
+                        placeholder="Nhập tên cho bài quizz" 
+                        [value]="quizz.name"
+                        (focusout)="doneEditing()"></textarea>
+                    <span class="material-icons md-18 text-success" [style]="{'cursor': 'pointer'}" (click)="doneEditing()">done</span>
+                </div>
+            </form>
+        </div>
+        <ng-template #notEdit>
+            <div class="d-flex justify-content-between" (dblclick)="editQuizzName()">
+                <div class="editable title overflow-hidden">{{quizz.name || "Nhập tên cho bài quizz"}}</div>
+                <span class="material-icons md-18 text-success" [style]="{'cursor': 'pointer'}" (click)="editQuizzName()">edit</span>
+            </div>
+        </ng-template>
+    </div>
+    <div *ngFor="let question of quizz.questions; let i = index" class=" bg-light p-4 rounded mt-3">
+        <div class="text-dark badge bg-secondary">
+            Câu {{i + 1}}
+        </div>
+        <form>
+            <div class="mb-3">
+                <input type="email" class="form-control text-dark" id="question">
+            </div>
+            <div class="mb-3 ml-4">
+                <input type="text" class="form-control text-dark" id="answerA">
+            </div>
+            <div class="mb-3 ml-4">
+                <input type="text" class="form-control text-dark" id="answerB">
+            </div>
+            <div class="mb-3 ml-4">
+                <input type="text" class="form-control text-dark" id="answerC">
+            </div>
+            <div class="mb-3 ml-4">
+                <input type="text" class="form-control text-dark" id="answerD">
+            </div>
+            <div class="d-flex justify-content-end">
+                <span class="material-icons md-18 text-dark">save</span>
+            </div>
+        </form>
+    </div>
+    <button class="btn btn-sm btn-light mt-3" (click)="addQuestion()">
+        <span class="material-icons md-18 text-success">add</span>
+    </button>
+</div>
+  

@@ -1,23 +1,57 @@
 
-<div class="container">
-    <div class="row">
-        <div class="col p-5 d-flex justify-content-between">
-            <h2>1 of 100</h2>
-        </div>
-    </div>
-    <div class="row m-5">        
-        <div class="col d-flex justify-content-center align-middle">
-            <h1>{{myQuizz.question}}</h1>
-        </div>
-    </div>
-    <div class="row d-flex justify-content-center p-4 m-2">
-        <div class="col-6 d-flex justify-content-center p-1" *ngFor="let answer of myQuizz.answers">
-            <div class="answer">                
-                <button type="button" 
-                    class="btn btn-info btn-block h-100 w-100 answer-button"
-                    (click)="choose(answer)"
-                    >{{answer}}</button>
+
+<div class="area" >
+    <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+    </ul>
+</div >
+<div class="context">    
+    <div class="container" *ngIf="!quizzEnd else end">
+        <div class="row">
+            <div class="col p-5 d-flex justify-content-between">
+                <h2>1 of 100</h2>
+                <div class="timer">
+                    {{timeLeft}}
+                </div>
             </div>
         </div>
+        <div class="row m-5">        
+            <div class="col d-flex justify-content-center align-middle">
+                <h1>{{myQuizz.question}}</h1>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center p-4 m-2">
+            <div class="col-6 d-flex justify-content-center p-1" *ngFor="let answer of myQuizz.answers">
+                <div class="answer">                
+                    <button type="button" 
+                        class="btn btn-info btn-block h-100 w-100 answer-button"
+                        (click)="choose(answer)"
+                        [ngClass]="(answer != choosenAnswer && choosenAnswer != null) ? 'disabled' : ''"
+                        >{{answer}}</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <div class="progress">
+            <div id="progress" class="progress-bar progress-bar-striped bg-success" 
+                role="progressbar" [style]="{'width': (timeLeft/myQuizz.time)*100 + '%'}"
+                aria-valuemin="0"
+                aria-valuemax="100"></div>
+        </div> -->
     </div>
+    <ng-template #end>
+        <div class="container">
+            <h1>Hết ròi</h1>
+            <h2>hehe</h2>
+        </div>
+    </ng-template>
 </div>
