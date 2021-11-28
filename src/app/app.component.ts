@@ -10,20 +10,23 @@ import { DOCUMENT } from "@angular/common"
 export class AppComponent implements OnInit{
   title = 'quizz-app';
   opacity: number;
+
   constructor (
     public location: Location,
     @Inject(DOCUMENT) document: any) {}
-  @HostListener("window:scroll", ["$event"])
-  onWindowScroll(e: any) {
-    if (window.pageYOffset > 350) {
-        this.opacity = 1;
-      }
-      else {
-        this.opacity = 0;
-    }
-  }
+
+  // @HostListener("window:scroll", ["$event"])
+  // onWindowScroll(e: any) {
+  //   if (window.pageYOffset > 350) {
+  //       this.opacity = 1;
+  //     }
+  //     else {
+  //       this.opacity = 0;
+  //   }
+  // }
+
   ngOnInit(): void {
-    this.onWindowScroll(event);
+    // this.onWindowScroll(event);
   }
 
 }

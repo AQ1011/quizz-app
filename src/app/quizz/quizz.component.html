@@ -22,21 +22,22 @@
                 <div class="timer">
                     {{timeLeft}}
                 </div>
+                <button (click)="startQuiz()">Start</button>
             </div>
         </div>
-        <div class="row m-5">        
+        <div class="row m-5" *ngIf="myQuizz != null">        
             <div class="col d-flex justify-content-center align-middle">
-                <h1>{{myQuizz.question}}</h1>
+                <h1>{{myQuizz.content}}</h1>
             </div>
         </div>
         <div class="row d-flex justify-content-center p-4 m-2">
-            <div class="col-6 d-flex justify-content-center p-1" *ngFor="let answer of myQuizz.answers">
+            <div class="col-6 d-flex justify-content-center p-1" *ngFor="let answer of myQuizz.alist">
                 <div class="answer">                
                     <button type="button" 
                         class="btn btn-info btn-block h-100 w-100 answer-button"
                         (click)="choose(answer)"
                         [ngClass]="(answer != choosenAnswer && choosenAnswer != null) ? 'disabled' : ''"
-                        >{{answer}}</button>
+                        >{{answer.answer}}</button>
                 </div>
             </div>
         </div>

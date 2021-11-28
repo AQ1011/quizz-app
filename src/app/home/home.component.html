@@ -1,6 +1,3 @@
-
-
-
 <div class="index-page">
     <div class="wrapper">
         
@@ -9,8 +6,8 @@
                 <div class="row pt-5">
                     <div class="col-8 text-center p-5 m-auto" style="height: 100vh;">
                         <div class="bigboi">KahootReal</div>
-                        <input placeholder="Mã phòng" class="form-control bg-secondary text-dark" type="text"/>
-                        <button class="btn btn-primary m-4" routerLink="/quizz/1">Bắt đầu</button>
+                        <input placeholder="Mã phòng" [(ngModel)]="roomId" class="form-control bg-secondary text-dark" type="text"/>
+                        <button class="btn btn-primary m-4" (click)="navigateToRoom()">Bắt đầu</button>
                     </div>
                 </div>
                 <div class="row bg-secondary p-5 rounded mt-3">

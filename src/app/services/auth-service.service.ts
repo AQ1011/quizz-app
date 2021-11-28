@@ -9,7 +9,7 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-const AUTH_API = 'http://localhost:8080';
+const AUTH_API = 'http://localhost:8080/api/';
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +32,9 @@ export class AuthServiceService {
 
   register(user: any): Observable<any> {
     return this.http.post(AUTH_API + 'register', {
-      username: user.username,
+      userName: user.username,
       email: user.email,
-      password: user.password
+      passwd: user.password
     }, httpOptions);
   }
 }

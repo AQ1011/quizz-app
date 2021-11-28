@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RxStompService } from '@stomp/ng2-stompjs';
+import { RoomService } from '../services/room.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  roomId: string;
+  name: string;
+
+  constructor(private router: Router,
+    private roomService: RoomService) { }
 
   ngOnInit(): void {
+    this.roomId = "";
   }
 
+  navigateToRoom() {
+    this.name = 'BigFish';
+    console.log('gogo' + this.roomId);
+    if(this.roomId){
+      this.roomService.joinRoom(this.roomId, this.name).subscribe(
+        res => {
+          this.router.navigate(['/room/'+ this.roomId]);
+        },
+        error => {
+          console.log(error);
+        }
+      )
+    }
+  }
 }

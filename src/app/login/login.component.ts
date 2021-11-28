@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  successMessage: string;
 
   constructor(private authService: AuthServiceService, private tokenService: TokenStorageService) {}
 
@@ -21,17 +22,19 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.form);
-    //Call API
-    // this.authService.register(this.form).subscribe(
-    //   data => {
-    //     console.log(data);
-    //     this.isSuccessful = true;
-    //     this.isSignUpFailed = false;
-    //   },
-    //   err => {
-    //     this.errorMessage = err.error.message;
-    //     this.isSignUpFailed = true;
-    //   }
-    // );
+    // Call API
+    this.authService.register(this.form).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+        this.successMessage = data.message;
+      },
+      err => {
+        this.errorMessage = err.error;
+        console.log(err.error);
+        this.isSignUpFailed = true;
+      }
+    );
   }
 }

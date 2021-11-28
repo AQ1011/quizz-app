@@ -1,7 +1,9 @@
 <div class="container login border border-primary rounded p-4">
+  <div *ngIf="successMessage">{{successMessage}}</div>
+  <div *ngIf="errorMessage">{{errorMessage}}</div>
   <form 
     name="form"
-    *ngIf="!isSuccessful"
+    *ngIf="!isSuccessful && !errorMessage"
     (ngSubmit)="f.form.valid && onSubmit()"
     #f="ngForm">
     <div class="form-group">
