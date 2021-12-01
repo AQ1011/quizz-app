@@ -10,7 +10,7 @@ import { CreateQuizzComponent } from './create-quizz/create-quizz.component';
 const routes: Routes = [    
   { path: 'home', component: HomeComponent },  
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
-  { path: 'room/:roomId', component: QuizzComponent },  
+  { path: 'room', component: QuizzComponent },  
   { path: 'user', loadChildren: () => import('../app/user-page/user-page.module')
       .then(m => m.UserPageModule),},
   { path: 'create-quiz', loadChildren: () => import('../app/create-quizz/create-quizz.module')

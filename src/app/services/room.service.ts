@@ -26,8 +26,17 @@ export class RoomService {
     return this.http.post(URI + 'getin', { name: name }, { params: { pin: roomId } , responseType: 'text'});
   }
   
-  sendAnswer(answer: string): void {
-    return this.stompService.publish({ destination: '/abc'});
+  sendAnswer(roomId: string, name: string, quizId:string, answerId: string ): Observable<any> {
+    return this.http.post(URI + 'submitAnswer', 
+      { 
+        name: name, 
+        quizId: quizId, 
+        answerId: answerId 
+      },
+      { 
+        params: { pin: roomId } , 
+        responseType: 'text'
+      });
   }
 
   getQuiz(roomId: string): Observable<IMessage> {

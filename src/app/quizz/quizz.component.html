@@ -25,6 +25,7 @@
                 <button (click)="startQuiz()">Start</button>
             </div>
         </div>
+        <button style="btn" (click)="log()">log</button>
         <div class="row m-5" *ngIf="myQuizz != null">        
             <div class="col d-flex justify-content-center align-middle">
                 <h1>{{myQuizz.content}}</h1>

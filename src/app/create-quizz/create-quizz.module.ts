@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { CreateQuizzRoutingModule } from './create-quizz-routing.module';
 import { CreateQuizzComponent } from './create-quizz.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AutosizeModule } from 'ngx-autosize';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -13,7 +15,10 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     CreateQuizzRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    AutosizeModule,
+    NgxPaginationModule
   ]
 })
 export class CreateQuizzModule { }

@@ -26,7 +26,10 @@ export class HomeComponent implements OnInit {
     if(this.roomId){
       this.roomService.joinRoom(this.roomId, this.name).subscribe(
         res => {
-          this.router.navigate(['/room/'+ this.roomId]);
+          this.router.navigate(['/room/', {
+            roomId: this.roomId,
+            name: this.name
+          }]);
         },
         error => {
           console.log(error);

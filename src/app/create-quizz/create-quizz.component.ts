@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-quizz',
@@ -11,13 +12,87 @@ export class CreateQuizzComponent implements OnInit {
   quizz: any;
   temp: any;
   editName: boolean;
-  constructor(private ref: ChangeDetectorRef) { }
+
+  roomForm: FormGroup;
+
+  dummyAnswer: FormArray;
+
+  thing = [1,2,3,4];
+  currentpage: number;
+
+  constructor(private ref: ChangeDetectorRef,
+    private fb:FormBuilder) { 
+      this.currentpage = 1;
+      this.roomForm = this.fb.group({
+        name: ['', Validators.required],
+        time: [30, Validators.required],
+        quizs: this.fb.array([
+
+        ])
+      });
+      this.dummyAnswer = this.fb.array([
+        {
+          answer: ['', Validators.required],
+          isCorrect: [true, Validators.required]
+        },
+        {
+          answer: ['', Validators.required],
+          isCorrect: [false, Validators.required]
+        },
+        {
+          answer: ['', Validators.required],
+          isCorrect: [false, Validators.required]
+        },
+        {
+          answer: ['', Validators.required],
+          isCorrect: [false, Validators.required]
+        }
+      ])
+      this.addQuiz();
+    }
 
   ngOnInit(): void {
     this.quizz = {};
     this.editName = false;
     this.quizz.editing = true
-    this.quizz.questions = [{'questions': '1'}];
+    
+  }
+
+  get quizs():FormArray {
+    return this.roomForm.get('quizs') as FormArray;
+  }
+
+  newQuiz() {
+    return this.fb.group({
+      content: ['', Validators.required],
+      alist: this.fb.group([        
+        this.fb.group({
+          answer: ['', Validators.required],
+          isCorrect: [false, Validators.required]
+        }),     
+        this.fb.group({
+          answer: ['', Validators.required],
+          isCorrect: [false, Validators.required]
+        }),     
+        this.fb.group({
+          answer: ['', Validators.required],
+          isCorrect: [false, Validators.required]
+        }),     
+        this.fb.group({
+          answer: ['', Validators.required],
+          isCorrect: [false, Validators.required]
+        }),
+
+      ])
+    })
+  } 
+
+  addQuiz() {
+    this.quizs.push(this.newQuiz());
+  }
+
+  removeQuiz(i: number) {
+    this.quizs.removeAt(i);
   }
 
   editQuizzName() {
@@ -27,7 +102,10 @@ export class CreateQuizzComponent implements OnInit {
     },30); 
   }
 
-  
+  submit() {
+    console.log(this.roomForm.value);
+  }
+
   doneEditing() {
     this.editName = false;
   }

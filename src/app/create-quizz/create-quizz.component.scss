@@ -1,10 +1,57 @@
+.space {
+  margin-top: 10vh;
+  height: auto;
+}
+
 .title {
-    font-size: 32px;
+    font-size: 24px;
     color: black;
     border: none;
+    background: transparent;
+    outline: none;
 }
 
 textarea {
     resize:none;
     overflow:hidden;
+}
+
+.quiz-number {
+    font-size: 16px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=number] {
+    margin-left: 16px;
+    width: 80px;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    background: transparent;
+}
+
+.paginate {
+  font-size: 20px;
+  background: red;
+  border: 1px solid blue;
+  width: 2rem;
+  margin: 0 8px 8px 8px
+}
+.paginate-current {
+  font-size: 20px;
+  background: chartreuse;
+  border: 1px solid blue;
+  width: 2rem;
+  margin: 0 8px 8px 8px
 }
