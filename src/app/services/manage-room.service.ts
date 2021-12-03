@@ -10,9 +10,15 @@ const URI = 'http://localhost:8080/api/';
 })
 export class ManageRoomService {
 
-  constructor(private http: HttpClient, private tokenStorage: TokenStorageService) { }
+  constructor(private http: HttpClient) { }
 
   getRooms(): Observable<any> {
     return this.http.get(URI + 'getrooms');
+  }
+  createRoom(room: any): Observable<any> {
+    return this.http.post(URI + 'createRoom',room);
+  }
+  getRoom(roomId: string) {
+    return this.http.get(URI + 'getroom', {params: { id: roomId }});
   }
 }

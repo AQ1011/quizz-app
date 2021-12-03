@@ -3,7 +3,7 @@
     <button class="btn m-4" routerLink="create-quiz">Create new room</button>
     <div class="d-flex flex-wrap">
         <div *ngFor="let quiz of myRooms">
-            <div class="d-flex flex-column justify-content-center bg-white rounded p-2 m-3" routerLink="{{quiz.name}}">
+            <div class="d-flex flex-column justify-content-center bg-white rounded p-2 m-3" routerLink="{{quiz.id}}">
                 <img class="quiz-thumbnail" src={{quiz.thumbnail}}/>
                 <h4>{{quiz.name}}</h4>
                 <h4>Pin: {{quiz.pinCode}}</h4>

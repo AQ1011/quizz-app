@@ -6,6 +6,7 @@ import { MyQuizzesComponent } from './my-quizzes/my-quizzes/my-quizzes.component
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { CreateQuizzComponent } from './create-quizz/create-quizz.component';
+import { RoomDetailsComponent } from './my-quizzes/room-details/room-details.component';
 
 const routes: Routes = [    
   { path: 'home', component: HomeComponent },  
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'create-quiz', loadChildren: () => import('../app/create-quizz/create-quizz.module')
       .then(m => m.CreateQuizzModule),},
   { path: 'my-quiz', component: MyQuizzesComponent},
-  { path: 'my-quiz/:quizId', component: CreateQuizzComponent},
+  { path: 'my-quiz/:roomId', component: RoomDetailsComponent},
   { path: 'register', loadChildren: () => import('../app/login/login.module')
       .then(m => m.LoginModule),},
   { path: 'login', component: RegisterComponent},

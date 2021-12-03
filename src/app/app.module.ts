@@ -20,6 +20,7 @@ import { InjectableRxStompConfig, RxStompService, rxStompServiceFactory } from '
 import { myRxStompConfig } from './my-rx-stomp.config';
 import { ManageUserComponent } from './admin/manage-user/manage-user.component';
 import { AuthInterceptor } from './services/http-interceptor.service';
+import { RoomDetailsComponent } from './my-quizzes/room-details/room-details.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AuthInterceptor } from './services/http-interceptor.service';
     HomeComponent,
     MyQuizzesComponent,
     ManageUserComponent,
+    RoomDetailsComponent,
   ],
   imports: [
     BrowserModule,

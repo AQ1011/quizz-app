@@ -28,15 +28,6 @@ export class MyQuizzesComponent implements OnInit {
         console.log(error.error);
       }
     );
-    this.myQuizes=[
-      {name: 'Quiz 1', description: 'about shrimp',thumbnail: 'https://media.sketchfab.com/models/3329b7c37a694fd19295e7f68d3471f8/thumbnails/b781a636cd9c42b88fb9e2cb1701912e/048651d65ad643f0b79b830823b49bb8.jpeg'},
-      {name: 'Quiz 2', description: 'not about shrimp', thumbnail: 'https://media.sketchfab.com/models/3329b7c37a694fd19295e7f68d3471f8/thumbnails/b781a636cd9c42b88fb9e2cb1701912e/048651d65ad643f0b79b830823b49bb8.jpeg'},
-      {name: 'Quiz 2', description: 'not about shrimp'},
-      {name: 'Quiz 2', description: 'not about shrimp'},
-      {name: 'Quiz 2', description: 'not about shrimp'},
-      {name: 'Quiz 2', description: 'not about shrimp'},
-      {name: 'Quiz 2', description: 'not about shrimp'},
-    ]
   }
 
 }

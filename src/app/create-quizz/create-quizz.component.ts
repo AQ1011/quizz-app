@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ManageRoomService } from '../services/manage-room.service';
 
 @Component({
   selector: 'app-create-quizz',
@@ -21,7 +22,8 @@ export class CreateQuizzComponent implements OnInit {
   currentpage: number;
 
   constructor(private ref: ChangeDetectorRef,
-    private fb:FormBuilder) { 
+    private fb:FormBuilder,
+    private manageRoom: ManageRoomService) { 
       this.currentpage = 1;
       this.roomForm = this.fb.group({
         name: ['', Validators.required],
@@ -65,7 +67,7 @@ export class CreateQuizzComponent implements OnInit {
   newQuiz() {
     return this.fb.group({
       content: ['', Validators.required],
-      alist: this.fb.group([        
+      alist: this.fb.array([        
         this.fb.group({
           answer: ['', Validators.required],
           isCorrect: [false, Validators.required]
@@ -104,6 +106,15 @@ export class CreateQuizzComponent implements OnInit {
 
   submit() {
     console.log(this.roomForm.value);
+    this.manageRoom.createRoom(this.roomForm.value).subscribe(
+      data => {
+        alert("nice quiz bro");
+      },
+      error => {
+        alert("trash quiz");
+        console.log(error);
+      }
+    );
   }
 
   doneEditing() {

@@ -1,0 +1,80 @@
+
+<div class="container space">
+    <div class="row justify-content-between ">       
+        <div class="col-lg-3 col-sm-12">               
+            <div class="rounded mt-3 p-3 bg-light" 
+                *ngIf="!129302; else notOpen">
+                Phòng chưa mở
+            </div>          
+            <ng-template #notOpen >   
+                <div class="rounded mt-3 p-3 bg-light">
+                    PIN: 129302
+                </div>           
+                <button class="btn btn-sm btn-danger mt-3 w-100">
+                    <span>
+                        Đóng phòng
+                        <i class="material-icons">
+                            close
+                        </i>
+                    </span>
+                </button>          
+            </ng-template>
+            <button class="btn btn-sm btn-success mt-3 w-100">                   
+                    Mở phòng
+                    <i class="material-icons">
+                        play_arrow
+                    </i>
+            </button>
+            <button class="btn btn-sm btn-warning mt-3 w-100">
+                <span>
+                    Chỉnh sửa
+                    <i class="material-icons">
+                        edit
+                    </i>
+                </span>
+            </button>            
+            <button class="btn btn-sm btn-danger mt-3 w-100">
+                <span>
+                    Xóa phòng
+                    <i class="material-icons">
+                        delete
+                    </i>
+                </span>
+            </button>   
+        </div>         
+        <div class="col-lg-9 col-md-12">
+            <div class="bg-light p-4 rounded mt-3">
+                <div class="d-flex justify-content-between">
+                    <h3 class="text-dark">{{roomDetail.name}}</h3>
+                </div>
+                <div class="d-flex align-item-center">                
+                    <div class="material-icons text-dark" [style]="{'cursor': 'default'}">alarm</div>
+                    <div class="time">{{roomDetail.time}}</div>
+                </div>
+            </div>
+            <div>
+                <div *ngFor="let quiz of roomDetail.quizs; let i = index " class=" bg-light p-4 rounded mt-3">    
+                    <div class="accordion">
+                        <div class="d-flex justify-content-between align-item-center mb-3">
+                            <div class="text-dark quiz-number">
+                                Câu {{i + 1}}
+                            </div>                            
+                        </div>
+                        <div class="mb-3">
+                            {{quiz.content}}
+                        </div>
+                        <div>
+                            <div *ngFor="let answer of quiz.alist; let j = index">                        
+                                <div class="d-flex mb-3">
+                                    {{answer.answer}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+  
