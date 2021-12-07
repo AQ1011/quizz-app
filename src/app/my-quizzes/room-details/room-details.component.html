@@ -1,14 +1,14 @@
 
-<div class="container space">
+<div class="container space mb-3">
     <div class="row justify-content-between ">       
         <div class="col-lg-3 col-sm-12">               
             <div class="rounded mt-3 p-3 bg-light" 
-                *ngIf="!129302; else notOpen">
+                *ngIf="!roomDetail.isOpen; else notOpen">
                 Phòng chưa mở
             </div>          
             <ng-template #notOpen >   
                 <div class="rounded mt-3 p-3 bg-light">
-                    PIN: 129302
+                    PIN: {{roomDetail.pinCode}}
                 </div>           
                 <button class="btn btn-sm btn-danger mt-3 w-100">
                     <span>
@@ -19,11 +19,17 @@
                     </span>
                 </button>          
             </ng-template>
-            <button class="btn btn-sm btn-success mt-3 w-100">                   
+            <button *ngIf="!roomDetail.isOpen" class="btn btn-sm btn-success mt-3 w-100" (click)="openRoom()">                   
                     Mở phòng
                     <i class="material-icons">
                         play_arrow
                     </i>
+            </button>
+            <button *ngIf="roomDetail.isOpen && !roomDetail.isStart" class="btn btn-sm btn-success mt-3 w-100" (click)="start()">                   
+                Bắt đầu
+                <i class="material-icons">
+                    play_arrow
+                </i>
             </button>
             <button class="btn btn-sm btn-warning mt-3 w-100">
                 <span>
@@ -33,7 +39,7 @@
                     </i>
                 </span>
             </button>            
-            <button class="btn btn-sm btn-danger mt-3 w-100">
+            <button class="btn btn-sm btn-danger mt-3 w-100" (click)="deleteRoom()">
                 <span>
                     Xóa phòng
                     <i class="material-icons">

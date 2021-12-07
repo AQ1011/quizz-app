@@ -1,3 +1,4 @@
+<h3 class="text-center title">Đăng nhập</h3>
 <div class="container login border border-primary rounded p-4">
     <form 
       name="form"
@@ -31,15 +32,15 @@
           #password="ngModel"
           required>
           <div class="" *ngIf="f.submitted && password.invalid">
-            <small *ngIf="password.errors.required" class="text-danger">*Password is required</small>
+            <small *ngIf="password.errors.required" class="text-danger">*Chưa nhập mật khẩu</small>
             <small *ngIf="password.errors.minlength" class="text-danger">
               Password must be at least 6 characters
             </small>
           </div>
       </div>
       <div class="text-center mt-4">
-        <button type="submit" class="btn btn-primary">Đăng Nhập</button>
+        <button type="submit" class="btn btn-primary mb-3 w-100">Đăng Nhập</button>
       </div>
-      <a routerLink="../login" class="">Đăng ký</a>
+      <a routerLink="/register" class="">Đăng ký</a>
     </form>
   </div>

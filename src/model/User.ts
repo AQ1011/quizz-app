@@ -1,4 +1,8 @@
-interface User {
-    username: string;
-    password: number;
+export interface User {
+    userName: string;
+    passwd: number;
+    name: string;
+    email: string;
+    phone: number;
+    gender: boolean;
   }

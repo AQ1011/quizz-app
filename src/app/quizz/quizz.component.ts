@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RoomService } from 'src/app/services/room.service';
-import  ObjectID from 'bson-objectid';
+import { Answer } from 'src/model/Room';
+import { IMessage } from '@stomp/stompjs';
 
 @Component({
   selector: 'app-quizz',
@@ -16,7 +17,7 @@ export class QuizzComponent implements OnInit {
   roomId: string;
   quizzEnd: boolean;
   timer: any;
-  countdown: any;
+  countdown: number;
   timeLeft: number;
   choosenAnswer: string;
 
@@ -26,6 +27,7 @@ export class QuizzComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.countdown = 0;
     this.route.paramMap.subscribe(params => {
       this.roomId = params.get('roomId');
       this.userName = params.get('name');
@@ -33,34 +35,57 @@ export class QuizzComponent implements OnInit {
     this.quizzEnd = false;
     this.roomService.getQuiz(this.roomId).subscribe(
       (message: any) => {
-        this.myQuizz = JSON.parse(message.body);
-        console.log(message.body);
-        console.log(JSON.parse(message.body).content);
+        try {
+          console.log(message);
+          this.myQuizz = JSON.parse(message.body);
+          console.log(JSON.parse(message._body));
+          if(JSON.parse(message._body).status){
+            console.log('okokokokok')
+            this.countdown = 3;
+            var t = setInterval(() => {
+              if(this.countdown > 0)
+                this.countdown -= 1;
+              else 
+                clearInterval()
+            },1000)
+          }
+          
+        } catch (e){
+          console.log(e);
+        }
       }
     )
     
     this.roomService.endQuiz(this.roomId).subscribe(
       (message: any) => {
         this.quizzEnd = true;
+        console.log(message);
       }
     )    
-  }
-
-  log() {
-    const ob = new ObjectID(1636554391)
-    console.log(ob.toHexString());
+    this.roomService.getScore(this.roomId).subscribe(
+      (message: IMessage) => {
+        console.log('from score: ')
+        console.log(message.body);
+      }
+    )    
   }
 
   objectIdFromDate(timeStamp: any) {
     return Math.floor(timeStamp / 1000).toString(16) + "0000000000000000";
   };
 
-  startQuiz() {
-    this.roomService.startRoom(this.roomId);
-  }
-
-  choose(answer: string) {
-    this.roomService.sendAnswer(this.roomId, this.userName, this.roomId, answer).subscribe();
+  choose(answer: Answer) {
+    if(this.choosenAnswer === answer.id)
+      return;
+    this.choosenAnswer = answer.id;
+    this.roomService.sendAnswer(this.roomId, this.userName, this.myQuizz.id, answer.id).subscribe(
+      (message: IMessage) => {
+        console.log(message.body);
+      },
+      error => {
+        console.log(error)
+      }
+    );
   }
 
   timeOut(time: number) {

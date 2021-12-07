@@ -14,18 +14,20 @@
             <li></li>
     </ul>
 </div >
-<div class="context">    
+<div class="context">
     <div class="container" *ngIf="!quizzEnd else end">
         <div class="row">
             <div class="col p-5 d-flex justify-content-between">
-                <h2>1 of 100</h2>
                 <div class="timer">
                     {{timeLeft}}
                 </div>
-                <button (click)="startQuiz()">Start</button>
             </div>
-        </div>
-        <button style="btn" (click)="log()">log</button>
+        </div>        
+        <div class="" *ngIf="countdown !== 0">
+            <div class="countdown">
+                {{countdown}}
+            </div>
+        </div>    
         <div class="row m-5" *ngIf="myQuizz != null">        
             <div class="col d-flex justify-content-center align-middle">
                 <h1>{{myQuizz.content}}</h1>
@@ -37,7 +39,7 @@
                     <button type="button" 
                         class="btn btn-info btn-block h-100 w-100 answer-button"
                         (click)="choose(answer)"
-                        [ngClass]="(answer != choosenAnswer && choosenAnswer != null) ? 'disabled' : ''"
+                        [ngClass]="(answer.id != choosenAnswer && choosenAnswer != null) ? 'disabled' : ''"
                         >{{answer.answer}}</button>
                 </div>
             </div>
@@ -51,9 +53,10 @@
         </div> -->
     </div>
     <ng-template #end>
-        <div class="container">
-            <h1>Hết ròi</h1>
-            <h2>hehe</h2>
+        <div class="container">            
+            <div class="countdown mt-5">
+                Kết thúc!
+            </div>
         </div>
     </ng-template>
 </div>

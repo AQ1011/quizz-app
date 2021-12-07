@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container pt-3">
     <div class="row justify-content-center spacing-top pt-5">
         <div class="col-md menu">
             <div class="text-center">
@@ -10,7 +10,7 @@
                 <a class="navlink" routerLink="change-password" routerLinkActive="active">
                     Đổi mật khẩu
                 </a>                
-                <a class="navlink" routerLinkActive="active" (click)="signOut()">
+                <a class="navlink" [style]="{'cursor': 'pointer'}" (click)="signOut()">
                     Đăng xuất
                 </a>
             </div>

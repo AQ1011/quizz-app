@@ -7,6 +7,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RegisterComponent } from './register/register.component';
 import { CreateQuizzComponent } from './create-quizz/create-quizz.component';
 import { RoomDetailsComponent } from './my-quizzes/room-details/room-details.component';
+import { LoginComponent } from './login/login.component';
+import { LoggedIn } from './services/loggedIn';
+import { RoomStartComponent } from './my-quizzes/room-start/room-start.component';
 
 const routes: Routes = [    
   { path: 'home', component: HomeComponent },  
@@ -16,17 +19,18 @@ const routes: Routes = [
       .then(m => m.UserPageModule),},
   { path: 'create-quiz', loadChildren: () => import('../app/create-quizz/create-quizz.module')
       .then(m => m.CreateQuizzModule),},
-  { path: 'my-quiz', component: MyQuizzesComponent},
-  { path: 'my-quiz/:roomId', component: RoomDetailsComponent},
-  { path: 'register', loadChildren: () => import('../app/login/login.module')
-      .then(m => m.LoginModule),},
+  { path: 'my-quiz', component: MyQuizzesComponent, canActivate: [LoggedIn]},
+  { path: 'my-quiz/:roomId', component: RoomDetailsComponent, canActivate: [LoggedIn]},
+  { path: 'my-quiz/:roomId/start', component: RoomStartComponent, canActivate: [LoggedIn]},
   { path: 'login', component: RegisterComponent},
+  { path: 'register', component: LoginComponent},
   { path: 'admin', loadChildren: () => import('../app/admin/admin.module')
-  .then(m => m.AdminModule),},
+  .then(m => m.AdminModule), canActivate: [LoggedIn]},
   { path: '**', component: NotFoundComponent },
 ]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [LoggedIn]
 })
 export class AppRoutingModule { }

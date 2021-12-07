@@ -4,10 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuizzComponent } from './quizz/quizz.component';
-import { ButtonModule } from 'primeng/button';
-import { MenubarModule } from 'primeng/menubar';
 import { MenuComponent } from './menu/menu.component';
-import { InputTextModule } from 'primeng/inputtext';
 import { UserPageComponent } from './user-page/user-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthServiceService } from './services/auth-service.service';
@@ -21,6 +18,10 @@ import { myRxStompConfig } from './my-rx-stomp.config';
 import { ManageUserComponent } from './admin/manage-user/manage-user.component';
 import { AuthInterceptor } from './services/http-interceptor.service';
 import { RoomDetailsComponent } from './my-quizzes/room-details/room-details.component';
+import { LoginComponent } from './login/login.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RoomStartComponent } from './my-quizzes/room-start/room-start.component';
 
 @NgModule({
   declarations: [
@@ -34,15 +35,16 @@ import { RoomDetailsComponent } from './my-quizzes/room-details/room-details.com
     MyQuizzesComponent,
     ManageUserComponent,
     RoomDetailsComponent,
+    LoginComponent,
+    RoomStartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ButtonModule,
-    MenubarModule,
-    InputTextModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     AuthServiceService,

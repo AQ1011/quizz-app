@@ -22,6 +22,7 @@ export class MyQuizzesComponent implements OnInit {
     this.roomService.getRooms().subscribe(
       data => {
         this.myRooms = data;
+        console.log(this.myRooms);
       },
       error => {
         console.log('error');

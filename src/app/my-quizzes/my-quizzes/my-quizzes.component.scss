@@ -1,8 +1,17 @@
 .quiz-thumbnail {
-    width: 200px;
-    height: 100px;    
+    width: 100%;
+    height: 130px;    
     object-fit: cover;
+    background: url('https://media.sketchfab.com/models/3329b7c37a694fd19295e7f68d3471f8/thumbnails/b781a636cd9c42b88fb9e2cb1701912e/048651d65ad643f0b79b830823b49bb8.jpeg');
 }
 h4, p {
     color: black
+}
+
+.title {
+    margin-top: 100px;
+}
+
+.room-card {
+    max-width: 300px;
 }

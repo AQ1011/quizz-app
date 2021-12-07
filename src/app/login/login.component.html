@@ -1,3 +1,4 @@
+<h3 class="title text-center">Đăng ký</h3>
 <div class="container login border border-primary rounded p-4">
   <div *ngIf="successMessage">{{successMessage}}</div>
   <div *ngIf="errorMessage">{{errorMessage}}</div>
@@ -54,8 +55,8 @@
         required>
     </div>
     <div class="text-center mt-4">
-      <button type="submit" class="btn btn-primary">Đăng ký</button>
+      <button type="submit" class="btn btn-primary mb-3 w-100">Đăng ký</button>
     </div>
-    <a routerLink="../register" class="">Đăng nhập</a>
+    <a routerLink="/login" class="">Đăng nhập</a>
   </form>
 </div>

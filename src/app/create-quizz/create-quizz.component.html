@@ -1,7 +1,7 @@
 
 <div class="container">
     <div class="text-center space">
-        <h3>Thêm bài quizz</h3>
+        <h3>Tạo phòng mới</h3>
     </div>
     <div class="row justify-content-between">       
         <div class="col-3">
@@ -29,7 +29,7 @@
                             #editQuizzNameInput
                             formControlName="name"
                             class="col-12 text-dark title p-0"  
-                            placeholder="Nhập tên cho bài quizz" 
+                            placeholder="Nhập tên" 
                             wrap="hard"
                             rows=1
                             [(ngModel)]="quizz.name"
@@ -39,7 +39,7 @@
                 </div>
                 <ng-template #notEdit>
                     <div class="d-flex justify-content-between" (dblclick)="editQuizzName()">
-                        <div class="editable title">{{quizz.name || "Nhập tên cho bài quizz"}}</div>
+                        <div class="editable title">{{quizz.name || "Nhập tên"}}</div>
                         <span class="material-icons md-18 text-dark" [style]="{'cursor': 'pointer'}" (click)="editQuizzName()">edit</span>
                     </div>
                 </ng-template>
@@ -59,7 +59,7 @@
                             <span class="material-icons md-18 text-dark" [style]="{'cursor': 'pointer'}" (click)="removeQuiz(i)">clear</span>
                         </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control text-dark input-lg" formControlName="content" placeholder="content">
+                                <input type="text" class="form-control text-dark input-lg" formControlName="content" placeholder="Câu hỏi">
                             </div>
                             <div formArrayName="alist">
                                 <div *ngFor="let answer of thing; let j = index">                        

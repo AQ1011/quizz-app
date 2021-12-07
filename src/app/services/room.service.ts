@@ -18,15 +18,11 @@ export class RoomService {
     return this.http.post(URI + 'openroom',{},{params: {id: roomId}, responseType: 'text'});
   } 
 
-  startRoom(roomId: string): void {
-    return this.stompService.publish({ destination: '/app/getquiz/' + roomId});
-  } 
-
   joinRoom(roomId: string, name: string):Observable<any> {
     return this.http.post(URI + 'getin', { name: name }, { params: { pin: roomId } , responseType: 'text'});
   }
   
-  sendAnswer(roomId: string, name: string, quizId:string, answerId: string ): Observable<any> {
+  sendAnswer(roomPin: string, name: string, quizId:string, answerId: string ): Observable<any> {
     return this.http.post(URI + 'submitAnswer', 
       { 
         name: name, 
@@ -34,17 +30,21 @@ export class RoomService {
         answerId: answerId 
       },
       { 
-        params: { pin: roomId } , 
+        params: { pin: roomPin } , 
         responseType: 'text'
       });
   }
 
-  getQuiz(roomId: string): Observable<IMessage> {
-    return this.stompService.watch({ destination: '/doquiz/room/' + roomId});
+  getQuiz(pin: string): Observable<any> {
+    return this.stompService.watch({ destination: '/doquiz/room/' + pin});
   }
 
-  endQuiz(roomId: string): Observable<IMessage> {    
-    return this.stompService.watch({ destination: '/doquiz/message/' + roomId});
+  getScore(pin: string): Observable<IMessage> {
+    return this.stompService.watch({ destination: '/doquiz/score/' + pin});
+  }
+
+  endQuiz(pin: string): Observable<IMessage> {    
+    return this.stompService.watch({ destination: '/doquiz/message/' + pin});
   }
 
 }

@@ -13,7 +13,13 @@ interface Quiz {
     alist: Answer[];
 }
 
-interface Answer {
+export interface Answer {
+    id: string;
     answer: string;
     isCorrect: boolean;
+}
+
+export interface Score {
+    name: string,
+    score: number;
 }

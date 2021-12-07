@@ -35,6 +35,7 @@ export class RegisterComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
+        this.router.navigate(['/']);
         // this.reloadPage();
       },
       err => {
