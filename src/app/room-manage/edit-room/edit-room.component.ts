@@ -1,19 +1,21 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ManageRoomService } from '../services/manage-room.service';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { ManageRoomService } from 'src/app/services/manage-room.service';
+import { Room } from 'src/model/Room';
 
 @Component({
-  selector: 'app-create-quizz',
-  templateUrl: './create-quizz.component.html',
-  styleUrls: ['./create-quizz.component.scss']
+  selector: 'app-edit-room',
+  templateUrl: './edit-room.component.html',
+  styleUrls: ['./edit-room.component.scss']
 })
-export class CreateQuizzComponent implements OnInit {
-
+export class EditRoomComponent implements OnInit {
   @ViewChild('editQuizzNameInput') quizzNameElement: ElementRef;
   quizz: any;
   temp: any;
   editName: boolean;
-
+  roomId: string;
   roomForm: FormGroup;
 
   dummyAnswer: FormArray;
@@ -23,7 +25,11 @@ export class CreateQuizzComponent implements OnInit {
 
   constructor(private ref: ChangeDetectorRef,
     private fb:FormBuilder,
-    private manageRoom: ManageRoomService) { 
+    private manageRoom: ManageRoomService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private toast: ToastrService) { 
+
       this.currentpage = 1;
       this.roomForm = this.fb.group({
         name: ['', Validators.required],
@@ -54,6 +60,20 @@ export class CreateQuizzComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.roomId = params.get('roomId');
+    });
+    this.manageRoom.getRoom(this.roomId).subscribe(
+      (data: any) => {
+        this.roomForm.patchValue(data as Room)
+        this.quizz.name = data.name;
+        this.quizz.time = data.time;
+        console.log(this.roomForm.value);
+      },
+      error => {
+        console.log('error',error);
+      }
+    )
     this.quizz = {};
     this.editName = false;
     this.quizz.editing = true
@@ -105,14 +125,16 @@ export class CreateQuizzComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.roomForm.value);
+    var roomValue = this.roomForm.value as Room;
+    roomValue.id = this.roomId;
+    console.log(roomValue);
     this.manageRoom.createRoom(this.roomForm.value).subscribe(
       data => {
-        alert("nice quiz bro");
+        this.toast.success('Thành công')
+        this.router.navigate(['room-manage',this.roomId]);
       },
       error => {
-        alert("trash quiz");
-        console.log(error);
+        this.toast.error('Đã xảy ra lỗi');
       }
     );
   }

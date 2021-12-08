@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RoomService } from 'src/app/services/room.service';
-import { Answer } from 'src/model/Room';
+import { Answer, Score } from 'src/model/Room';
 import { IMessage } from '@stomp/stompjs';
 
 @Component({
@@ -16,10 +16,14 @@ export class QuizzComponent implements OnInit {
   allQuizzes: any[];
   roomId: string;
   quizzEnd: boolean;
+  quizzStart: boolean;
   timer: any;
   countdown: number;
   timeLeft: number;
   choosenAnswer: string;
+  showScore: boolean;
+  leaderBoard: Score[];
+  personalScore: Score;
 
   constructor(private roomService: RoomService, 
     private route: ActivatedRoute) { 
@@ -28,16 +32,25 @@ export class QuizzComponent implements OnInit {
 
   ngOnInit(): void {
     this.countdown = 0;
+    this.timeLeft = 0;
     this.route.paramMap.subscribe(params => {
       this.roomId = params.get('roomId');
       this.userName = params.get('name');
     });
     this.quizzEnd = false;
+    this.quizzStart = false;
     this.roomService.getQuiz(this.roomId).subscribe(
       (message: any) => {
         try {
-          console.log(message);
+          this.quizzStart = true;
           this.myQuizz = JSON.parse(message.body);
+          this.timeLeft = this.myQuizz.time;
+          var t1 = setInterval(() => {
+            if(this.timeLeft > 0)
+              this.timeLeft -= 1;
+            else 
+              clearInterval(t1)
+          },1000)
           console.log(JSON.parse(message._body));
           if(JSON.parse(message._body).status){
             console.log('okokokokok')
@@ -64,8 +77,10 @@ export class QuizzComponent implements OnInit {
     )    
     this.roomService.getScore(this.roomId).subscribe(
       (message: IMessage) => {
-        console.log('from score: ')
-        console.log(message.body);
+        this.showScore = true;
+        this.leaderBoard = JSON.parse(message.body) as Score[];
+        this.personalScore = this.leaderBoard.filter(score => score.name = this.userName)[0];
+        this.leaderBoard.sort(this.compare);
       }
     )    
   }
@@ -90,5 +105,13 @@ export class QuizzComponent implements OnInit {
 
   timeOut(time: number) {
 
+  }
+
+  compare(a: any, b:any) {
+    if(a.score < b.score) 
+     return 1;
+     if(a.score > b.score) 
+      return -1;
+    return 0;
   }
 }

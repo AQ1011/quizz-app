@@ -5,14 +5,14 @@
             <div>   
                 <div class="rounded mt-3 p-3 bg-light">
                     PIN: {{roomDetail.pinCode}}
-                </div>           
+                </div>  
                 <button *ngIf="roomDetail.isOpen && !roomDetail.isStart" class="btn btn-sm btn-success mt-3 w-100" (click)="start()">                   
                     Bắt đầu
                     <i class="material-icons">
                         play_arrow
                     </i>
                 </button>
-                <button class="btn btn-sm btn-danger mt-3 w-100">
+                <button class="btn btn-sm btn-danger mt-3 w-100" (click)="closeRoom()">
                     <span>
                         Đóng phòng
                         <i class="material-icons">
@@ -29,20 +29,16 @@
                 </div>
                 <div class="d-flex align-item-center">                
                     <div class="material-icons text-dark" [style]="{'cursor': 'default'}">alarm</div>
-                    <div class="time">{{roomDetail.time}}</div>
+                    <div class="time">{{roomDetail.time}}s</div>
                 </div>
             </div>
-            
-            <div *ngFor="let guest of guests">
+            <div class="score">Bảng xếp hạng</div>
+            <div *ngFor="let guest of guests; let i = index">
                 <div class="d-flex justify-content-between score-line">
+                    <div class="score">{{i + 1}}</div>
                     <div class="score">{{guest.name}}</div>
                     <div class="score">{{guest.score}}</div>
                 </div>
-            </div>
-            
-            <div class="d-flex justify-content-between score-line">
-                <div class="score">abc</div>
-                <div class="score">0</div>
             </div>
         </div>
         <div>

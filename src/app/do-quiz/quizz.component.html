@@ -15,11 +15,19 @@
     </ul>
 </div >
 <div class="context">
-    <div class="container" *ngIf="!quizzEnd else end">
+    <div *ngIf="!quizzStart && !quizzEnd">
+        <div class="container top-space">            
+            <!-- <div class="countdown mt-5">
+                Đang chuẩn bị
+            </div> -->
+            <div class="loader"></div>
+        </div>
+    </div>
+    <div class="container" *ngIf="!quizzEnd && !showScore">
         <div class="row">
             <div class="col p-5 d-flex justify-content-between">
                 <div class="timer">
-                    {{timeLeft}}
+                    <!-- {{timeLeft}} -->
                 </div>
             </div>
         </div>        
@@ -45,18 +53,33 @@
             </div>
         </div>
         
-        <!-- <div class="progress">
+        <!-- <div class="progress" *ngIf="myQuizz.time>0">
             <div id="progress" class="progress-bar progress-bar-striped bg-success" 
                 role="progressbar" [style]="{'width': (timeLeft/myQuizz.time)*100 + '%'}"
                 aria-valuemin="0"
                 aria-valuemax="100"></div>
         </div> -->
     </div>
-    <ng-template #end>
+    <div *ngIf="quizzEnd">
         <div class="container">            
             <div class="countdown mt-5">
                 Kết thúc!
             </div>
         </div>
-    </ng-template>
+    </div>
+    <div *ngIf="showScore">
+        <div class="container top-space">            
+            <div class="score-personal mt-5">
+                Điểm của bạn: {{personalScore.score}}
+            </div>       
+            <div class="score">Bảng xếp hạng</div>
+            <div *ngFor="let player of leaderBoard; let i = index">
+                <div class="d-flex justify-content-between score-line">
+                    <div class="score">{{i + 1}}</div>
+                    <div class="score">{{player.name}}</div>
+                    <div class="score">{{player.score}}</div>
+                </div>
+            </div>
+        </div>
+    </div>        
 </div>

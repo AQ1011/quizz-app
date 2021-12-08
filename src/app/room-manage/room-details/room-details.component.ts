@@ -4,6 +4,7 @@ import { ManageRoomService } from 'src/app/services/manage-room.service';
 import { RoomService } from 'src/app/services/room.service';
 import { Room, Score } from '../../../model/Room';
 import { IMessage } from '@stomp/stompjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-room-details',
@@ -18,7 +19,8 @@ export class RoomDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private manageRoom: ManageRoomService,
     private router: Router,
-    private roomService: RoomService) { 
+    private roomService: RoomService,
+    private toast: ToastrService) { 
   }
 
   ngOnInit(): void {
@@ -61,11 +63,11 @@ export class RoomDetailsComponent implements OnInit {
   deleteRoom() {
     this.manageRoom.deleteRoom(this.roomId).subscribe(
       data => {
-        alert(data);
-        this.router.navigate(['/my-quiz']);
+        this.toast.success(data)
+        this.router.navigate(['/room-manage']);
       },
       error => {
-        alert(error);
+        this.toast.success('Đã xảy ra lỗi!');
       }
     );
   }

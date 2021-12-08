@@ -29,7 +29,11 @@ export class ManageRoomService {
   }
 
   createRoom(room: any): Observable<any> {
-    return this.http.post(URI + 'createRoom',room);
+    return this.http.post(URI + 'createRoom',room, { responseType: 'text' });
+  }
+
+  editRoom(room: any): Observable<any> {
+    return this.http.post(URI + 'editRoom',room, { responseType: 'text' });
   }
 
   getRoom(roomId: string) {
@@ -37,6 +41,10 @@ export class ManageRoomService {
   }
 
   deleteRoom(roomId: string) {
-    return this.http.post(URI + 'deleteRoom',{},{params: {id: roomId}, responseType: 'text'});
+    return this.http.post(enviroment.apiURL  + 'deleteroom',{},{params: {id: roomId}, responseType: 'text'});
+  }
+
+  closeRoom(roomId: string) {
+    return this.http.post(enviroment.apiURL + 'closeroom',{},{params: {id: roomId}, responseType: 'text'});
   }
 }

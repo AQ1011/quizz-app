@@ -4,7 +4,7 @@ import { ManageRoomService } from 'src/app/services/manage-room.service';
 import { RoomService } from 'src/app/services/room.service';
 import { Room, Score } from 'src/model/Room';
 import { IMessage } from '@stomp/stompjs';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-room-start',
@@ -21,7 +21,8 @@ export class RoomStartComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private manageRoom: ManageRoomService,
     private router: Router,
-    private roomService: RoomService) { 
+    private roomService: RoomService,
+    private toast: ToastrService) { 
       this.guests = [];
   }
 
@@ -37,16 +38,15 @@ export class RoomStartComponent implements OnInit {
           (message: IMessage) => {
             this.guests = JSON.parse(message.body) as Score[]
             this.guests.sort(this.compare);
-            console.log(this.guests);
+            console.log('guest',this.guests);
           }, 
           error => {
-            console.log('error');
-            console.log(error);
+            console.log('error',error);
           }
         )
       },
       error => {
-        console.log('wek room: ' + error.message);
+        console.log(error + error.message);
       }
     )    
   }
@@ -67,11 +67,11 @@ export class RoomStartComponent implements OnInit {
   deleteRoom() {
     this.manageRoom.deleteRoom(this.roomId).subscribe(
       data => {
-        alert(data);
-        this.router.navigate(['/my-quiz']);
+        this.toast.success(data)
+        this.router.navigate(['/room-manage']);
       },
       error => {
-        alert(error);
+        this.toast.success('Đã xảy ra lỗi!');
       }
     );
   }
@@ -82,8 +82,18 @@ export class RoomStartComponent implements OnInit {
       this.roomDetail.isStart = true;
     }
   }
-  closeRoom() {
 
+  closeRoom() {
+    this.manageRoom.closeRoom(this.roomId).subscribe(
+      data => {
+        this.toast.success(data);
+        this.router.navigate(['/room-manage',this.roomId]);
+      },
+      error => {
+        console.log(error);
+        this.toast.error('Đã xảy ra lỗi!')
+      }
+    )
   }
 
   compare(a: any, b:any) {
