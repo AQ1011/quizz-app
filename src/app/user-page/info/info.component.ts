@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { userService } from 'src/app/services/user.service';
-import { User } from 'src/model/User';
+import { User } from 'src/app/model/User';
 
 @Component({
   selector: 'app-info',

@@ -1,10 +1,10 @@
 <div class="container mt-4">
     <h1 class="title">Phòng đã tạo</h1>
-    <button class="btn m-4" routerLink="/create-quiz">Tạo phòng mới</button>
+    <button class="btn m-4" routerLink="create">Tạo phòng mới</button>
     <div class="d-flex flex-wrap justify-content-center">
         <div *ngFor="let quiz of myRooms">
             <div class="d-flex flex-column justify-content-center bg-white rounded p-2 m-3 room-card" routerLink="{{quiz.id}}">
-                <img class="quiz-thumbnail" src='https://media.sketchfab.com/models/3329b7c37a694fd19295e7f68d3471f8/thumbnails/b781a636cd9c42b88fb9e2cb1701912e/048651d65ad643f0b79b830823b49bb8.jpeg'/>
+                <img class="quiz-thumbnail" src='https://www.insidehook.com/wp-content/uploads/2021/06/Punctuation.jpg?fit=1200%2C800'/>
                 <h4 class="text-truncate">{{quiz.name}}</h4>
                 <p class="text-truncate">{{quiz.description}}</p>
             </div>

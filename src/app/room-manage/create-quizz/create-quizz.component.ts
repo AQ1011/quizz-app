@@ -1,5 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ManageRoomService } from '../../services/manage-room.service';
 
 @Component({
@@ -23,7 +25,9 @@ export class CreateQuizzComponent implements OnInit {
 
   constructor(private ref: ChangeDetectorRef,
     private fb:FormBuilder,
-    private manageRoom: ManageRoomService) { 
+    private manageRoom: ManageRoomService,
+    private toast: ToastrService,
+    private router: Router) { 
       this.currentpage = 1;
       this.roomForm = this.fb.group({
         name: ['', Validators.required],
@@ -108,10 +112,11 @@ export class CreateQuizzComponent implements OnInit {
     console.log(this.roomForm.value);
     this.manageRoom.createRoom(this.roomForm.value).subscribe(
       data => {
-        alert("nice quiz bro");
+        this.toast.success("Tạo thành công!");
+        this.router.navigate(['/room-manage']);
       },
       error => {
-        alert("trash quiz");
+        this.toast.error("Lỗi");
         console.log(error);
       }
     );

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ManageRoomService } from 'src/app/services/manage-room.service';
 import { RoomService } from 'src/app/services/room.service';
-import { Room, Score } from 'src/model/Room';
+import { Room, Score } from 'src/app/model/Room';
 import { IMessage } from '@stomp/stompjs';
 import { ToastrService } from 'ngx-toastr';
 

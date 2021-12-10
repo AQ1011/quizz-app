@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RoomService } from 'src/app/services/room.service';
-import { Answer, Score } from 'src/model/Room';
+import { Answer, Score } from 'src/app/model/Room';
 import { IMessage } from '@stomp/stompjs';
 
 @Component({
@@ -45,6 +45,8 @@ export class QuizzComponent implements OnInit {
           this.quizzStart = true;
           this.myQuizz = JSON.parse(message.body);
           this.timeLeft = this.myQuizz.time;
+          this.showScore = false;
+          this.choosenAnswer = null;
           var t1 = setInterval(() => {
             if(this.timeLeft > 0)
               this.timeLeft -= 1;
@@ -77,6 +79,7 @@ export class QuizzComponent implements OnInit {
     )    
     this.roomService.getScore(this.roomId).subscribe(
       (message: IMessage) => {
+        this.choosenAnswer = null;
         this.showScore = true;
         this.leaderBoard = JSON.parse(message.body) as Score[];
         this.personalScore = this.leaderBoard.filter(score => score.name = this.userName)[0];
@@ -95,7 +98,7 @@ export class QuizzComponent implements OnInit {
     this.choosenAnswer = answer.id;
     this.roomService.sendAnswer(this.roomId, this.userName, this.myQuizz.id, answer.id).subscribe(
       (message: IMessage) => {
-        console.log(message.body);
+        console.log(message);
       },
       error => {
         console.log(error)

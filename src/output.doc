@@ -1,0 +1,392 @@
+Folder PATH listing for volume OS
+Volume serial number is CE40-C90A
+C:.
+|   favicon.ico
+|   index.html
+|   main.ts
+|   output.doc
+|   polyfills.ts
+|   styles.sass
+|   styles.scss
+|   test.ts
+|   
++---app
+|   |   app-routing.module.ts
+|   |   app.component.html
+|   |   app.component.scss
+|   |   app.component.spec.ts
+|   |   app.component.ts
+|   |   app.module.ts
+|   |   enviroment.ts
+|   |   my-rx-stomp.config.ts
+|   |   
+|   +---admin
+|   |   |   admin-routing.module.ts
+|   |   |   admin.component.html
+|   |   |   admin.component.scss
+|   |   |   admin.component.spec.ts
+|   |   |   admin.component.ts
+|   |   |   admin.module.ts
+|   |   |   
+|   |   \---manage-user
+|   |           manage-user.component.html
+|   |           manage-user.component.scss
+|   |           manage-user.component.spec.ts
+|   |           manage-user.component.ts
+|   |           
+|   +---do-quiz
+|   |       quizz.component.html
+|   |       quizz.component.scss
+|   |       quizz.component.spec.ts
+|   |       quizz.component.ts
+|   |       
+|   +---home
+|   |       home.component.html
+|   |       home.component.scss
+|   |       home.component.spec.ts
+|   |       home.component.ts
+|   |       
+|   +---login
+|   |       login.component.html
+|   |       login.component.scss
+|   |       login.component.spec.ts
+|   |       login.component.ts
+|   |       
+|   +---menu
+|   |       menu.component.html
+|   |       menu.component.scss
+|   |       menu.component.spec.ts
+|   |       menu.component.ts
+|   |       
+|   +---model
+|   |       Question.ts
+|   |       Room.ts
+|   |       User.ts
+|   |       
+|   +---not-found
+|   |       not-found.component.html
+|   |       not-found.component.scss
+|   |       not-found.component.spec.ts
+|   |       not-found.component.ts
+|   |       
+|   +---register
+|   |       register.component.html
+|   |       register.component.scss
+|   |       register.component.spec.ts
+|   |       register.component.ts
+|   |       
+|   +---room-manage
+|   |   |   room-manage-routing.module.ts
+|   |   |   room-manage.component.html
+|   |   |   room-manage.component.scss
+|   |   |   room-manage.component.spec.ts
+|   |   |   room-manage.component.ts
+|   |   |   room-manage.module.ts
+|   |   |   
+|   |   +---create-quizz
+|   |   |       create-quizz.component.html
+|   |   |       create-quizz.component.scss
+|   |   |       create-quizz.component.spec.ts
+|   |   |       create-quizz.component.ts
+|   |   |       
+|   |   +---edit-room
+|   |   |       edit-room.component.html
+|   |   |       edit-room.component.scss
+|   |   |       edit-room.component.spec.ts
+|   |   |       edit-room.component.ts
+|   |   |       
+|   |   +---my-quizzes
+|   |   |       my-quizzes.component.html
+|   |   |       my-quizzes.component.scss
+|   |   |       my-quizzes.component.spec.ts
+|   |   |       my-quizzes.component.ts
+|   |   |       
+|   |   +---room-details
+|   |   |       room-details.component.html
+|   |   |       room-details.component.scss
+|   |   |       room-details.component.spec.ts
+|   |   |       room-details.component.ts
+|   |   |       
+|   |   \---room-start
+|   |           room-start.component.html
+|   |           room-start.component.scss
+|   |           room-start.component.spec.ts
+|   |           room-start.component.ts
+|   |           
+|   +---services
+|   |       auth-service.service.ts
+|   |       http-interceptor.service.ts
+|   |       loggedIn.ts
+|   |       manage-room.service.ts
+|   |       room.service.ts
+|   |       token-storage.service.ts
+|   |       user.service.ts
+|   |       
+|   \---user-page
+|       |   user-page-routing.module.ts
+|       |   user-page.component.html
+|       |   user-page.component.scss
+|       |   user-page.component.spec.ts
+|       |   user-page.component.ts
+|       |   user-page.module.ts
+|       |   
+|       +---change-password
+|       |       change-password.component.html
+|       |       change-password.component.scss
+|       |       change-password.component.spec.ts
+|       |       change-password.component.ts
+|       |       
+|       \---info
+|               info.component.html
+|               info.component.scss
+|               info.component.spec.ts
+|               info.component.ts
+|               
++---assets
+|   |   .gitkeep
+|   |   Gawr_Gura.png
+|   |   nf.png
+|   |   
+|   +---css
+|   |       nucleo-icons.css
+|   |       
+|   +---demo
+|   |       demo.css
+|   |       
+|   +---fonts
+|   |       nucleo.eot
+|   |       nucleo.ttf
+|   |       nucleo.woff
+|   |       nucleo.woff2
+|   |       
+|   +---img
+|   |       apple-icon.png
+|   |       asc.gif
+|   |       bg.gif
+|   |       bitcoin.png
+|   |       blob.png
+|   |       cercuri.png
+|   |       chester-wade.jpg
+|   |       denys.jpg
+|   |       desc.gif
+|   |       dots.png
+|   |       etherum.png
+|   |       fabien-bazanegue.jpg
+|   |       favicon.png
+|   |       github.svg
+|   |       google.svg
+|   |       img_3115.jpg
+|   |       james.jpg
+|   |       julie.jpeg
+|   |       landing-page.png
+|   |       logo.png
+|   |       lora.jpg
+|   |       mark-finn.jpg
+|   |       mike.jpg
+|   |       nucleo-logo.svg
+|   |       path1.png
+|   |       path2.png
+|   |       path3.png
+|   |       path4.png
+|   |       path5.png
+|   |       patrat.png
+|   |       profile-page.png
+|   |       ripp.png
+|   |       ryan.jpg
+|   |       square-purple-1.png
+|   |       square1-red.png
+|   |       square1.png
+|   |       square2.png
+|   |       square3.png
+|   |       square4.png
+|   |       square5.png
+|   |       square6.png
+|   |       triunghiuri.png
+|   |       waves.png
+|   |       
+|   \---scss
+|       |   blk-design-system.scss
+|       |   
+|       \---blk-design-system
+|           +---angular
+|           |       _alerts.scss
+|           |       _datepicker.scss
+|           |       _example-pages.scss
+|           |       _pills.scss
+|           |       _tabs.scss
+|           |       
+|           +---bootstrap
+|           |   |   _alert.scss
+|           |   |   _badge.scss
+|           |   |   _breadcrumb.scss
+|           |   |   _button-group.scss
+|           |   |   _buttons.scss
+|           |   |   _card.scss
+|           |   |   _carousel.scss
+|           |   |   _close.scss
+|           |   |   _code.scss
+|           |   |   _custom-forms.scss
+|           |   |   _dropdown.scss
+|           |   |   _forms.scss
+|           |   |   _functions.scss
+|           |   |   _grid.scss
+|           |   |   _images.scss
+|           |   |   _input-group.scss
+|           |   |   _jumbotron.scss
+|           |   |   _list-group.scss
+|           |   |   _media.scss
+|           |   |   _mixins.scss
+|           |   |   _modal.scss
+|           |   |   _nav.scss
+|           |   |   _navbar.scss
+|           |   |   _pagination.scss
+|           |   |   _popover.scss
+|           |   |   _print.scss
+|           |   |   _progress.scss
+|           |   |   _reboot.scss
+|           |   |   _root.scss
+|           |   |   _tables.scss
+|           |   |   _tooltip.scss
+|           |   |   _transitions.scss
+|           |   |   _type.scss
+|           |   |   _utilities.scss
+|           |   |   _variables.scss
+|           |   |   
+|           |   +---mixins
+|           |   |       _alert.scss
+|           |   |       _background-variant.scss
+|           |   |       _badge.scss
+|           |   |       _border-radius.scss
+|           |   |       _box-shadow.scss
+|           |   |       _breakpoints.scss
+|           |   |       _buttons.scss
+|           |   |       _caret.scss
+|           |   |       _clearfix.scss
+|           |   |       _float.scss
+|           |   |       _forms.scss
+|           |   |       _gradients.scss
+|           |   |       _grid-framework.scss
+|           |   |       _grid.scss
+|           |   |       _hover.scss
+|           |   |       _image.scss
+|           |   |       _list-group.scss
+|           |   |       _lists.scss
+|           |   |       _nav-divider.scss
+|           |   |       _pagination.scss
+|           |   |       _reset-text.scss
+|           |   |       _resize.scss
+|           |   |       _screen-reader.scss
+|           |   |       _size.scss
+|           |   |       _table-row.scss
+|           |   |       _text-emphasis.scss
+|           |   |       _text-hide.scss
+|           |   |       _text-truncate.scss
+|           |   |       _transition.scss
+|           |   |       _visibility.scss
+|           |   |       
+|           |   \---utilities
+|           |           _align.scss
+|           |           _background.scss
+|           |           _borders.scss
+|           |           _clearfix.scss
+|           |           _display.scss
+|           |           _embed.scss
+|           |           _flex.scss
+|           |           _float.scss
+|           |           _position.scss
+|           |           _screenreaders.scss
+|           |           _shadows.scss
+|           |           _sizing.scss
+|           |           _spacing.scss
+|           |           _text.scss
+|           |           _visibility.scss
+|           |           
+|           \---custom
+|               |   example-pages.scss
+|               |   _alerts.scss
+|               |   _badge.scss
+|               |   _buttons.scss
+|               |   _card.scss
+|               |   _checkboxes-radio.scss
+|               |   _dropdown.scss
+|               |   _fixed-plugin.scss
+|               |   _footer.scss
+|               |   _forms.scss
+|               |   _functions.scss
+|               |   _icons.scss
+|               |   _images.scss
+|               |   _info-areas.scss
+|               |   _input-group.scss
+|               |   _misc.scss
+|               |   _mixins.scss
+|               |   _modal.scss
+|               |   _navbar.scss
+|               |   _pagination.scss
+|               |   _pills.scss
+|               |   _progress.scss
+|               |   _rtl.scss
+|               |   _sections.scss
+|               |   _tables.scss
+|               |   _tabs.scss
+|               |   _type.scss
+|               |   _utilities.scss
+|               |   _variables.scss
+|               |   
+|               +---cards
+|               |       _card-chart.scss
+|               |       _card-map.scss
+|               |       _card-plain.scss
+|               |       _card-register.scss
+|               |       _card-stats.scss
+|               |       _card-task.scss
+|               |       _card-user.scss
+|               |       
+|               +---mixins
+|               |       opacity.scss
+|               |       _alert.scss
+|               |       _background-variant.scss
+|               |       _badges.scss
+|               |       _buttons.scss
+|               |       _dropdown.scss
+|               |       _forms.scss
+|               |       _icon.scss
+|               |       _inputs.scss
+|               |       _modals.scss
+|               |       _page-header.scss
+|               |       _popovers.scss
+|               |       _vendor-prefixes.scss
+|               |       _wizard.scss
+|               |       
+|               +---sections
+|               |       _blogs.scss
+|               |       _contactus.scss
+|               |       _features.scss
+|               |       _headers.scss
+|               |       _pricing.scss
+|               |       _projects.scss
+|               |       _social-subscribe-lines.scss
+|               |       _team.scss
+|               |       _testimonials.scss
+|               |       
+|               +---utilities
+|               |       _backgrounds.scss
+|               |       _floating.scss
+|               |       _helper.scss
+|               |       _position.scss
+|               |       _shadows.scss
+|               |       _sizing.scss
+|               |       _spacing.scss
+|               |       _text.scss
+|               |       _transform.scss
+|               |       
+|               \---vendor
+|                       _plugin-animate-bootstrap-notify.scss
+|                       _plugin-bootstrap-switch.scss
+|                       _plugin-datetimepicker.scss
+|                       _plugin-nouislider.scss
+|                       _plugin-perfect-scrollbar.scss
+|                       
+\---environments
+        environment.prod.ts
+        environment.ts
+        

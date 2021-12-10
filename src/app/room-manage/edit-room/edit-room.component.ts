@@ -3,7 +3,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ManageRoomService } from 'src/app/services/manage-room.service';
-import { Room } from 'src/model/Room';
+import { Room } from 'src/app/model/Room';
 
 @Component({
   selector: 'app-edit-room',
@@ -65,10 +65,15 @@ export class EditRoomComponent implements OnInit {
     });
     this.manageRoom.getRoom(this.roomId).subscribe(
       (data: any) => {
+        const room = data as Room;
+        room.quizs.forEach((quiz:any,index) => {
+            this.addQuiz()
+        });
+        this.removeQuiz(room.quizs.length);
         this.roomForm.patchValue(data as Room)
+        console.log(this.roomForm.value);
         this.quizz.name = data.name;
         this.quizz.time = data.time;
-        console.log(this.roomForm.value);
       },
       error => {
         console.log('error',error);

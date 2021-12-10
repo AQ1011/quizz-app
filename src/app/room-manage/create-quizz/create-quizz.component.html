@@ -3,8 +3,8 @@
     <div class="text-center space">
         <h3>Tạo phòng mới</h3>
     </div>
-    <div class="row justify-content-between">       
-        <div class="col-3">
+    <div class="row justify-content-center">       
+        <!-- <div class="col-3"> -->
             <!-- <pagination-template #p="paginationApi"
                 id="listing_pagination"
                 (pageChange)="currentpage = $event"
@@ -19,8 +19,8 @@
                     </button>
                 </div>    
             </pagination-template> -->
-        </div>         
-        <div [formGroup]="roomForm" class="col-9">
+        <!-- </div>          -->
+        <div [formGroup]="roomForm" class="col-lg-9 col-sm-12">
             <div #quizzName class="bg-light p-4 rounded">
                 <div class="" *ngIf="editName; else notEdit">
                     <!-- <div class="d-flex justify-content-between"> -->

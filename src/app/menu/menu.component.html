@@ -1,7 +1,7 @@
 <nav id="navbar" class="nav pt-2 pl-5 pr-5 mb-5 fixed-top bg-primary" 
   color-on-scroll="100" id="navbar-top" [ngClass]="{'pink': opacity===1}">
     <a class="nav-link active" routerLink="home" id="brand" 
-      [ngStyle]="{'opacity': isHome ? opacity : 1}">KahootReal</a>
+      [ngStyle]="{'opacity': isHome ? opacity : 1}">CursedQuiz</a>
   <!-- <a class="nav-link" href="#">Link</a>
   <a class="nav-link" href="#">Link</a>
   <a class="nav-link disabled" href="#">Disabled</a> -->
@@ -16,7 +16,7 @@
       </a>
     </div>
     <a *ngIf="isLoggedIn()" routerLink="/room-manage">Rooms</a>
-    <img src="../../../assets/Gawr_Gura.png" class="rounded-circle avatar" routerLink='/user'/>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" class="rounded-circle avatar" routerLink='/user'/>
     
   </div>
 </nav>

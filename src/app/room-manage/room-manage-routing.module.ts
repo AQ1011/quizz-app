@@ -9,10 +9,10 @@ import { RoomStartComponent } from './room-start/room-start.component';
 
 const routes: Routes = [
   { path: '', component: MyQuizzesComponent,canActivate:[LoggedIn]},
+  { path: 'create', component: CreateQuizzComponent},
   { path: ':roomId', component: RoomDetailsComponent},
   { path: ':roomId/start', component: RoomStartComponent},
   { path: ':roomId/edit', component: EditRoomComponent},
-  { path: 'create', component: CreateQuizzComponent},
 ];
 
 @NgModule({
