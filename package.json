@@ -19,7 +19,7 @@
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
     "@stomp/ng2-stompjs": "^8.0.0",
-    "ngx-autosize": "^1.8.4",
+    "ngx-autosize": "^1.8.7",
     "ngx-bootstrap": "^7.1.0",
     "ngx-pagination": "^5.1.1",
     "ngx-toastr": "^14.3.0",
